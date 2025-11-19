@@ -25,7 +25,7 @@ struct Month: View {
             ForEach(0..<4) { _ in
                 HStack(spacing: heatMapRectangleSpacing) {
                     ForEach(0..<7) { i in
-                        Cell(heatMapRectangleWidth: heatMapRectangleWidth, heatMapRectangleRadius: heatMapRectangleRadius, opacity: Double(i)/10.0)
+                        Cell(heatMapRectangleWidth: heatMapRectangleWidth, heatMapRectangleRadius: heatMapRectangleRadius, opacity: Double.random(in: 0...0.9))
                     }
                 }
             }

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct Cell: View {
     var blockBackgroundColor: Color = Color.background
-    var heatMapRectangleWidth: Double
-    var heatMapRectangleRadius: Double
-    var opacity: Double = 0.2
+    var heatMapRectangleWidth: Double = 20.0
+    var heatMapRectangleRadius: Double = 5.0
+    var opacity: Double
 
     var body: some View {
         VStack {
@@ -28,5 +28,5 @@ struct Cell: View {
 }
 
 #Preview {
-    Cell(heatMapRectangleWidth: 20.0, heatMapRectangleRadius: 5.0)
+    Cell(opacity: 0.1)
 }
