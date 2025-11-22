@@ -15,10 +15,16 @@ struct Week: View {
             Text(title)
                 .font(.system(size: 16, weight: .bold))
                 .foregroundStyle(Color.background)
+            
             Grid {
                 GridRow {
-                    ForEach(1...7, id: \.self) { day in
-                        Cell(opacity: Double.random(in: 0...0.9))
+                    let weekDay: Int = (ContributionData.getTodayWeekdayNumber() + 5) % 7 + 1
+                    ForEach(1...weekDay, id: \.self) { day in
+                        // TODO: Here comes the data from the current week until the current day
+                        Cell(opacity: Double.random(in: 0...0.9), active: true)
+                    }
+                    ForEach(1...(7-weekDay), id: \.self) { day in
+                        Cell(opacity: 0.0, active: false)
                     }
                 }
             }

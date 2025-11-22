@@ -25,4 +25,23 @@ class ContributionData {
             DateContribution(date: endDate, contribution: 1, type: type)
         ]
     }
+    
+    /// Returns today's weekday number using the current calendar (1 = Sunday, 7 = Saturday)
+    static func getTodayWeekdayNumber() -> Int {
+        let calendar: Calendar = .current
+        let components = calendar.dateComponents([.weekday], from: Date())
+        var weekdays = calendar.shortWeekdaySymbols
+        return components.weekday ?? 1
+    }
+
+    /// Returns today's localized weekday name (e.g., "Monday") using the provided locale (defaults to current)
+    func todayWeekdayName(locale: Locale = .current) -> String {
+        let calendar: Calendar = .current
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.calendar = calendar
+        formatter.dateFormat = "EEEE" // full weekday name
+        return formatter.string(from: Date())
+    }
+    
 }

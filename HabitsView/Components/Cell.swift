@@ -12,21 +12,22 @@ struct Cell: View {
     var heatMapRectangleWidth: Double = 20.0
     var heatMapRectangleRadius: Double = 5.0
     var opacity: Double
+    var active: Bool
 
     var body: some View {
         VStack {
             ZStack {
                 RoundedRectangle(cornerRadius: heatMapRectangleRadius)
                     .frame(width: heatMapRectangleWidth, height: heatMapRectangleWidth)
-                    .foregroundColor(.green)
+                    .foregroundColor(active ? .green : .white)
                 RoundedRectangle(cornerRadius: heatMapRectangleRadius)
                     .frame(width: heatMapRectangleWidth, height: heatMapRectangleWidth)
-                    .foregroundColor(blockBackgroundColor.opacity(opacity))
+                    .foregroundColor(blockBackgroundColor.opacity(active ? opacity : 0.1))
             }
         }
     }
 }
 
 #Preview {
-    Cell(opacity: 0.1)
+    Cell(opacity: 0.1, active: false)
 }
