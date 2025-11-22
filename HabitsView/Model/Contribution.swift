@@ -30,7 +30,6 @@ class ContributionData {
     static func getTodayWeekdayNumber() -> Int {
         let calendar: Calendar = .current
         let components = calendar.dateComponents([.weekday], from: Date())
-        var weekdays = calendar.shortWeekdaySymbols
         return components.weekday ?? 1
     }
 
